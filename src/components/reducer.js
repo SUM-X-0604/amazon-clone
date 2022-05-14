@@ -20,14 +20,13 @@ const reducer = (state, action) => {
                 basket: [...state.basket, action.item],
             }
         case 'REMOVE_FROM_BASKET':
-            // LOGIC FROM REMOVING ITEM FROM CART
+            // LOGIC FOR REMOVING ITEM FROM CART
             const index = state.basket.findIndex((basketItem) => basketItem.id === action.id);
 
             let newBasket = [...state.basket];
             if (index >= 0) {
                 // remove items from cart
                 newBasket.splice(index, 1);
-
             } else {
                 console.warn(`can't remove the product (id: ${action.id} as its not in the cart)`)
             }
